@@ -1,9 +1,9 @@
-name 'wordpress'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+name 'WordPress'
+maintainer 'Miguel Angel Marin Encina'
+maintainer_email 'Miguel_Marin@epam.com'
 license 'All Rights Reserved'
-description 'Installs/Configures wordpress'
-long_description 'Installs/Configures wordpress'
+description 'Installs/Configures WordPress'
+long_description 'Installs/Configures an empty WordPress using LEMP Stack'
 version '0.1.0'
 chef_version '>= 12.14' if respond_to?(:chef_version)
 
