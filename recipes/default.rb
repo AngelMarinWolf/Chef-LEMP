@@ -3,3 +3,8 @@
 # Recipe:: default
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
+
+####
+# Adding Basic Repositories required
+####
+include_recipe 'WordPress::repos_centos'
