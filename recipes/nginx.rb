@@ -1,7 +1,9 @@
 ####
 # Installation and configuration of Nginx
 ####
-include_recipe 'WordPress::repos_centos'
+if node[:platform] == 'centos'
+  include_recipe 'WordPress::repos_centos'
+end
 
 package 'nginx' do
   action :install
@@ -12,24 +14,24 @@ service 'nginx' do
 end
 
 cookbook_file "/etc/nginx/nginx.conf" do
-  source "nginx.conf"
-  mode "0644"
-  owner 'root'
-  group 'root'
-  action :create
+  source  "nginx.conf"
+  mode    "0644"
+  owner   'root'
+  group   'root'
+  action  :create
 end
 
 template "/etc/nginx/conf.d/000-upstream.conf" do
-  source "000-upstreams.conf.erb"
-  mode "0644"
-  owner 'root'
-  group 'root'
+  source  "nginx/000-upstreams.conf.erb"
+  mode    "0644"
+  owner   'root'
+  group   'root'
 end
 
 template "/etc/nginx/conf.d/000-wordpress.conf" do
-  source "000-wordpress.conf.erb"
-  mode "0644"
-  owner 'root'
-  group 'root'
+  source  "nginx/000-wordpress.conf.erb"
+  mode    "0644"
+  owner   'root'
+  group   'root'
   notifies :reload, "service[nginx]"
 end

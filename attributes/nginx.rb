@@ -1,4 +1,4 @@
 ####
 # Defining default NGINX properties
 ####
-default['nginx']['port']
+default['nginx']['port'] = 80

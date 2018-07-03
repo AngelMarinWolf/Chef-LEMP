@@ -3,7 +3,7 @@ server {
   # Listener Configuration #
   ##########################
 
-  listen 80;
+  listen <%= node['nginx']['port'] %>;
   server_name _;
 
   #######################
