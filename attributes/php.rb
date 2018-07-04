@@ -19,9 +19,9 @@ default['php']['bind_address']  = "0.0.0.0"
 default['php']['host']          = "127.0.0.1"
 default['php']['port']          = 9000
 
-node['php']['listen_owner']     = "nginx"
-node['php']['listen_group']     = "nginx"
-node['php']['listen_mode']      = "0644"
+default['php']['listen_owner']     = "nginx"
+default['php']['listen_group']     = "nginx"
+default['php']['listen_mode']      = "0644"
 
-node['php']['user']             = "nginx"
-node['php']['group']            = "nginx"
+default['php']['user']             = "nginx"
+default['php']['group']            = "nginx"

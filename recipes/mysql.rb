@@ -4,7 +4,7 @@
 
 # Importing Repositories
 if node[:platform] == 'centos'
-  include_recipe 'WordPress::repos_centos'
+  include_recipe 'LEMP-Centos::repos_centos'
 end
 
 # Installing Software
@@ -14,6 +14,6 @@ package 'MySQL Server' do
 end
 
 # Starting Service
-service 'mysql' do
+service 'mysqld' do
   action [ :enable, :start ]
 end

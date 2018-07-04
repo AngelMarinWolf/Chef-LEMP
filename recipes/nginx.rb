@@ -4,7 +4,7 @@
 
 # Importing Repositories
 if node[:platform] == 'centos'
-  include_recipe 'WordPress::repos_centos'
+  include_recipe 'LEMP-Centos::repos_centos'
 end
 
 # Installing Software
