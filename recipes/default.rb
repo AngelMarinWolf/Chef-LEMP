@@ -7,4 +7,7 @@
 ####
 # Adding Basic Repositories required
 ####
-include_recipe 'WordPress::repos_centos'
+include_recipe 'LEMP-Centos::nginx'
+include_recipe 'LEMP-Centos::php-fpm'
+include_recipe 'LEMP-Centos::mysql'
+include_recipe 'LEMP-Centos::source'

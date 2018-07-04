@@ -10,15 +10,15 @@ server {
   # Basic Configuration #
   #######################
 
-  root /var/www/app/httpdocs/;
+  root <%= node['source']['path_dir'] %>;
   index index.php index.html index.htm;
 
   ######################
   # Logs Configuration #
   ######################
 
-  access_log /var/log/nginx/app.access.log x-log;
-  error_log /var/log/nginx/app.error.log;
+  access_log /var/log/nginx/<%= node['source']['app_name'] %>.access.log x-log;
+  error_log /var/log/nginx/<%= node['source']['app_name'] %>.error.log;
 
   location / {
     try_files $uri $uri/ /index.php?$args;

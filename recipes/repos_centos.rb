@@ -5,6 +5,7 @@
 #     - EPEL
 #     - REMI
 #     - NGINX
+#     - MySQL
 
 ####
 # NGINX Repository
@@ -52,6 +53,26 @@ yum_repository 'remi-php' do
     description "Providing the latest versions of the PHP stack"
     baseurl     "http://rpms.remirepo.net/enterprise/#{node[:platform_version].to_i}/safe/#{node[:kernel][:machine]}/"
     gpgkey      ["https://rpms.remirepo.net/RPM-GPG-KEY-remi","https://rpms.remirepo.net/RPM-GPG-KEY-remi2017","https://rpms.remirepo.net/RPM-GPG-KEY-remi2018"]
+    enabled     true
+    action      :create
+  end
+end
+
+####
+# MySQL 8.0 Community Repository
+####
+yum_repository 'mysql-community' do
+  case node[:platform_version].to_i
+  when 7
+    description "MySQL 8.0 Community Server"
+    baseurl     "http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/"
+    gpgkey      "http://repo.mysql.com/RPM-GPG-KEY-mysql"
+    enabled     true
+    action      :create
+  when 6
+    description "MySQL 8.0 Community Server"
+    baseurl     "http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/"
+    gpgkey      "http://repo.mysql.com/RPM-GPG-KEY-mysql"
     enabled     true
     action      :create
   end

@@ -1,15 +1,15 @@
 ; Start a new pool named 'wordpress'.
-[wordpress]
-listen = 0.0.0.0:9000
+[www]
+listen = <%= node['php']['bind_address'] %>:<%= node['php']['port'] %>
 
 ; Set permissions for unix socket, if one is used. In Linux, read/write
-listen.owner = nginx
-listen.group = nginx
-listen.mode = 0666
+listen.owner = <%= node['php']['listen_owner'] %>
+listen.group = <%= node['php']['listen_group'] %>
+listen.mode  = <%= node['php']['listen_mode'] %>
 
 ; Unix user/group of processes
-user = nginx
-group = nginx
+user  = <%= node['php']['user'] %>
+group = <%= node['php']['group'] %>
 
 ; Choose how the process manager will control the number of child processes.
 pm = dynamic
