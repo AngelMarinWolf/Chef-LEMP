@@ -15,9 +15,9 @@ default['php']['extensions'] = %w{
   gettext
 }
 
-default['php']['bind_address']  = "0.0.0.0"
-default['php']['host']          = "127.0.0.1"
-default['php']['port']          = 9000
+default['php']['bind_address']     = "0.0.0.0"
+default['php']['host']             = "127.0.0.1"
+default['php']['port']             = 9000
 
 default['php']['listen_owner']     = "nginx"
 default['php']['listen_group']     = "nginx"

@@ -1,0 +1,25 @@
+{
+  "name": "WebServer",
+  "description": "This Role installs a LEMP stack.",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "nginx": {
+      "port": 80
+    },
+    "source": {
+      "app_name": "app",
+      "repository": "repository"
+    }
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[LEMP-Centos::nginx]",
+    "recipe[LEMP-Centos::php-fpm]",
+    "recipe[LEMP-Centos::mysql]",
+    "recipe[LEMP-Centos::source]"
+  ],
+  "env_run_lists": {}
+}
